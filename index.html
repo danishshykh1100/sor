@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message for Nabia</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #ffdde1, #ee9ca7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+        .message-box {
+            background: #fffafc;
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            text-align: center;
+            width: 90%;
+            max-width: 420px;
+            position: relative;
+        }
+        .typing {
+            color: #c0392b;
+            font-size: 19px;
+            min-height: 120px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            line-height: 1.5;
+        }
+        .heart {
+            font-size: 45px;
+            color: #e84393;
+            animation: heartbeat 1.5s infinite;
+            margin-top: 18px;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .hint {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            font-size: 13px;
+            color: #555;
+        }
+        @media (max-width: 400px) {
+            .message-box {
+                padding: 25px 15px;
+            }
+            .typing {
+                font-size: 16px;
+            }
+            .heart {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="message-box">
+    <div class="typing" id="typing"></div>
+    <div class="heart">💖</div>
+    <div class="hint">Tumhari muskaan sabse pyari hai... 😊</div>
+</div>
+
+<script>
+    const message = `Nabia... Kabhi kabhi log chhoti chhoti baatein bada bana dete hain,
+lekin tumhara dil bohat saaf hai.
+Tum woh insan ho jo sabse zyada khushiyan deserve karta hai.
+Tumhara patience, tumhari smile, aur tumhari goodness
+sab kuch itna pyaara hai ke uska koi muqabla nahi.
+
+Koi kuch bhi kahe, bas tum yaad rakhna:
+Tum khud mein perfect ho.
+
+Aur haan, Danish hamesha tumhare saath hai,
+chahe duniya kuch bhi kahe.
+
+Tumhara Danish ❤️`;
+
+    let index = 0;
+    const typingElement = document.getElementById('typing');
+
+    function typeMessage() {
+        if (index < message.length) {
+            typingElement.textContent += message.charAt(index);
+            index++;
+            setTimeout(typeMessage, 70);
+        }
+    }
+
+    typeMessage();
+</script>
+
+</body>
+</html>
